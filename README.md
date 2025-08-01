@@ -1,6 +1,8 @@
 # OpenSSL Setup
 ## Introduction
-Now that the https protocol and encrypted connection have become widely democratized on the web, it is crucial to have a reliable model to use for development before going into production. This tutorial aims to set up a self-signed SSL certificate using OpenSSL and Apache on Wamp for Windows (for other systems such as Linux this tutorial is to be adapted), for multiple virtual hosts, which allows to work on multiple projects simultaneously using an encrypted connection.
+Now that the https protocol and encrypted connection have become widely democratized on the web, it is crucial to have a reliable model to use for development before going into production. This tutorial aims to set up a self-signed SSL certificate using OpenSSL and Apache on Wamp for Windows (for other systems such as Linux this tutorial is to be adapted).
+
+This steps permit to setup multiple SSL certificates for multiple virtual hosts, which allows to work on multiple projects simultaneously with an encrypted protocol.
 
 Here after we give an example to setup ssl for a virtual host called "forum.prog" (it is possible to setup multiple virtual hosts in the same time).
 
