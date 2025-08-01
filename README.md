@@ -21,8 +21,8 @@ Normally, Wamp should automatically update apache as well as windows HOST files
 
 `Include conf/extra/httpd-ssl.conf`
 
-* Add the following directive to c:\wamp64\bin\apache\apache\conf\extras\httpd-ssl.conf (add one directive per virtual host):
-
+* Add the following directive to c:\wamp64\bin\apache\apache\conf\extras\httpd-ssl.conf (add one directive per virtual host)
+```apache
 <VirtualHost *:443>
     ServerName forum.prog
     ServerAlias forum.prog
@@ -54,7 +54,7 @@ Normally, Wamp should automatically update apache as well as windows HOST files
     SSLProtocol all -SSLv3 -TLSv1 -TLSv1.1
     Protocols h2 http/1.1
 </VirtualHost>
-
+```
 ## Creation of self-signed SSL certificates
 * Create the following directory: c:\wamp64\bin\certs\forum.prog (create one directory per virtual host)
 
@@ -81,7 +81,7 @@ Normally, Wamp should automatically update apache as well as windows HOST files
 `openssl req -new -key forum.prog\server.key -out forum.prog\server.csr -config forum.prog\openssl.cnf`
 
 * Enter the following answers and validate each question by Enter (if no config file given previously):
-
+```
 Country: FR
 State/Province name: France
 City: Paris
@@ -90,7 +90,7 @@ Organizational Unit Name: IT Department
 Common name: forum.prog (enter the domain name of the virtual host you want to certificate here)
 Email Address: webmaster@forum.prog
 Let a blank answer for the "Challenge password" and "Optional company name"
-
+```
 * Finally, self-sign your certificate for a duration of 3650 days (can be replaced by another number)
 
 `openssl x509 -req -days 3650 -in forum.prog\server.csr -signkey forum.prog\server.key -out forum.prog\server.crt`
