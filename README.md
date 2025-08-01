@@ -2,7 +2,7 @@
 ## Introduction
 Now that the https protocol and encrypted connection have become widely democratized on the web, it is crucial to have a reliable model to use for development before going into production. This tutorial aims to set up a self-signed SSL certificate using OpenSSL and Apache on Wamp for Windows (for other systems such as Linux this tutorial is to be adapted).
 
-This steps permit to setup multiple SSL certificates for multiple virtual hosts, which allows to work on multiple projects simultaneously with an encrypted protocol.
+These steps permit to setup multiple SSL certificates for multiple virtual hosts, which allows to work on multiple projects simultaneously with an encrypted protocol.
 
 Here after we give an example to setup ssl for a virtual host called "forum.prog" (it is possible to setup multiple virtual hosts in the same time).
 
@@ -61,18 +61,23 @@ Normally, Wamp should automatically update apache as well as windows HOST files
 * Open cmd as administrator and enter following commands:
 
 * pointing the dir of installation of OpenSSL on your computer (edit if necessary)
+
 `cd C:\Program Files\OpenSSL-Win64\bin`
 
 * creating a dir for your website to certificate
+
 `md forum.prog`
 
 * Create the server key file
+
 `openssl genrsa -out forum.prog\server.key 2048`
 
 * Generate the Certificate Signing Request (CSR) file
+
 `openssl req -new -key forum.prog\server.key -out forum.prog\server.csr`
 
 * Generate the Certificate Signing Request (CSR) file ONLY IF YOU USE CONFIG FILE (no answers to give then, see the openssl.cnf file):
+
 `openssl req -new -key forum.prog\server.key -out forum.prog\server.csr -config forum.prog\openssl.cnf`
 
 * Enter the following answers and validate each question by Enter (if no config file given previously):
@@ -87,12 +92,14 @@ Email Address: webmaster@forum.prog
 Let a blank answer for the "Challenge password" and "Optional company name"
 
 * Finally, self-sign your certificate for a duration of 3650 days (can be replaced by another number)
-openssl x509 -req -days 3650 -in forum.prog\server.csr -signkey forum.prog\server.key -out forum.prog\server.crt
+
+`openssl x509 -req -days 3650 -in forum.prog\server.csr -signkey forum.prog\server.key -out forum.prog\server.crt`
 
 * Move your signed certificate to the directory: c:\wamp64\bin\certs\forum.prog
 
-* Import your self signed certificate to the Windows Trusted Certificates Store (Win+R > certmgr.msc to see certificates)
-certutil -f -addstore "root" "c:\wamp64\bin\certs\forum.prog\server.crt"
+* Import your self signed certificate to the Windows Trusted Certificates Store (can be checked in Win+R > certmgr.msc > Trusted Root Certification Authorities)
+
+`certutil -f -addstore "root" "c:\wamp64\bin\certs\forum.prog\server.crt"`
 
 * Repeat these steps for all your virtual hosts
 
