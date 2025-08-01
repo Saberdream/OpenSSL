@@ -1,12 +1,12 @@
 # OpenSSL Setup
 ## Introduction
-Now that the https protocol and encrypted connection have become widely democratized on the web, it is crucial to have a reliable model to use for development before going into production. This tutorial aims to set up a self-signed SSL certificate using OpenSSL and Apache on Wamp for Windows (for other systems such as Linux this tutorial is to be adapted).
+Now that the https protocol and encrypted connection have become widely democratized on the web, it is crucial to have a reliable model to use for development before going into production. **This tutorial aims to set up a self-signed SSL certificate using OpenSSL and Apache on Wamp for Windows** (for other systems such as Linux this tutorial is to be adapted).
 
-These steps permit to setup multiple SSL certificates for multiple virtual hosts, which allows to work on multiple projects simultaneously with an encrypted protocol.
+These steps permit to create multiple SSL certificates for multiple virtual hosts, which allows to work on multiple projects simultaneously with an encrypted protocol.
 
-Here after we give an example to setup ssl for a virtual host called "forum.prog" (it is possible to setup multiple virtual hosts in the same time).
+Here after, we give an example to setup ssl for a virtual host called "forum.prog" (it is possible to setup multiple virtual hosts in the same time).
 
-This requires WampServer > 3, and installation of OpenSSL light as administrator on your system, and then activate OpenSSL module in Apache files.
+This requires WampServer > 3, installation of OpenSSL light as administrator on your system, and the OpenSSL module to be activated in Apache files.
 To download and install the lastest executable for Windows (Win64 OpenSSL v3.5.1 Light): https://slproweb.com/products/Win32OpenSSL.html
 ## Creation of your virtual hosts, activation of SSL, adding Apache directives to ssl vhost file
 * First, create your virtual host(s) for your different projects by using WampServer tool (localhost -> Tools -> Add a virtual host), restart Wamp services, restart DNS
