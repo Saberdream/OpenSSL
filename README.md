@@ -15,6 +15,7 @@ Normally, Wamp should automatically update apache as well as windows HOST files
 
 * Then activate the OpenSSL module in apache by uncommenting following lines in the file c:\wamp64\bin\apache\apache\conf\httpd.conf:
 ```
+LoadModule http2_module modules/mod_http2.so
 LoadModule socache_shmcb_module modules/mod_socache_shmcb.so
 LoadModule ssl_module modules/mod_ssl.so
 Include conf/extra/httpd-ssl.conf
