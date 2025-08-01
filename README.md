@@ -14,13 +14,11 @@ To download and install the lastest executable for Windows (Win64 OpenSSL v3.5.1
 Normally, Wamp should automatically update apache as well as windows HOST files
 
 * Then activate the OpenSSL module in apache by uncommenting following lines in the file c:\wamp64\bin\apache\apache\conf\httpd.conf:
-
-`LoadModule socache_shmcb_module modules/mod_socache_shmcb.so`
-
-`LoadModule ssl_module modules/mod_ssl.so`
-
-`Include conf/extra/httpd-ssl.conf`
-
+```
+LoadModule socache_shmcb_module modules/mod_socache_shmcb.so
+LoadModule ssl_module modules/mod_ssl.so
+Include conf/extra/httpd-ssl.conf
+```
 * Add the following directive to c:\wamp64\bin\apache\apache\conf\extras\httpd-ssl.conf (add one directive per virtual host)
 ```apache
 <VirtualHost *:443>
@@ -60,11 +58,11 @@ Normally, Wamp should automatically update apache as well as windows HOST files
 
 * Open cmd as administrator and enter following commands:
 
-* pointing the dir of installation of OpenSSL on your computer (edit if necessary)
+* Pointing the dir of installation of OpenSSL on your computer (edit if necessary)
 
 `cd C:\Program Files\OpenSSL-Win64\bin`
 
-* creating a dir for your website to certificate
+* Create a dir for your website to certificate
 
 `md forum.prog`
 
