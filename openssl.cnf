@@ -1,0 +1,24 @@
+#
+# OpenSSL config file for forum.prog
+#
+
+[req]
+default_bits       = 2048
+default_md         = sha256
+distinguished_name = dn
+x509_extensions    = san
+req_extensions     = san
+extensions         = san
+prompt             = no
+
+[dn]
+C            = FR
+ST           = France
+L            = Paris
+O            = Business
+OU           = IT Department
+CN           = forum.prog
+emailAddress = webmaster@forum.prog
+
+[san]
+subjectAltName = DNS:forum.prog
